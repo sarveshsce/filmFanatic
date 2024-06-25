@@ -39,10 +39,7 @@ const Modal = ({ movie, closeModal }: Props) => {
 
   const getMovieDetails = async () => {
     try {
-      const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${movie.id}?append_to_response=videos`,
-        options
-      );
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/movie/${movie.id}?append_to_response=videos`, options)
       const data = await res.json();
 
       if (data?.videos) {
